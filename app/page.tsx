@@ -1,7 +1,4 @@
-'use client'
-import { useEffect, useState } from 'react'
 import Wrapper from './home/wrapper'
-import { HealthRes } from '../pages/api/health'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import {
@@ -12,21 +9,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
-    const [status, setStatus] = useState<null | HealthRes>(null)
-
-    useEffect(() => {
-        const getHealthStatus = async () => {
-            const response = await fetch('/api/health')
-            if (!response.ok) {
-                console.error('Failed to fetch health status')
-                return
-            }
-            const data: HealthRes = await response.json()
-            setStatus(data)
-        }
-        getHealthStatus()
-    }, [])
-
     return (
         <Wrapper>
             <div className="flex justify-between items-center p-3">

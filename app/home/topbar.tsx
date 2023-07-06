@@ -1,15 +1,31 @@
+'use client'
+import Link from 'next/link'
+import './topbar.css'
+import { usePathname } from 'next/navigation'
+
+const linkStyles = `block py-2 pl-3 pr-4 text-gray-900 rounded 
+                        hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                        md:hover:text-green-700 md:p-0 dark:text-white 
+                        md:dark:hover:text-green-500 dark:hover:bg-gray-700 
+                        dark:hover:text-white md:dark:hover:bg-transparent`
+
+const linkStylesActive = `block py-2 pl-3 pr-4 text-white bg-green-700 rounded 
+                        md:bg-transparent md:text-green-700 md:p-0 dark:text-white
+                        md:dark:text-green-500`
+
 export default function Topbar() {
+    const pathname = usePathname()
     return (
-        <nav className="bg-white border-gray-200 dark:bg-gray-900">
+        <nav className="bg-white border-gray-200 dark:bg-black">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://flowbite.com/" className="flex items-center">
+                <a href="/" className="flex items-center">
                     <img
-                        src="https://flowbite.com/docs/images/logo.svg"
+                        src="/wallie-side-logo.png"
                         className="h-8 mr-3"
                         alt="Flowbite Logo"
                     />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                        Flowbite
+                    <span className="rainbow-text self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                        <span className="block-line"> wallie</span>
                     </span>
                 </a>
                 <button
@@ -38,47 +54,42 @@ export default function Topbar() {
                     className="hidden w-full md:block md:w-auto"
                     id="navbar-default"
                 >
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-gray-700">
                         <li>
                             <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                                aria-current="page"
+                                href="/"
+                                className={
+                                    pathname == '/'
+                                        ? linkStylesActive
+                                        : linkStyles
+                                }
                             >
-                                Home
+                                Feed
                             </a>
                         </li>
                         <li>
                             <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                href="/about"
+                                className={
+                                    pathname == 'about'
+                                        ? linkStylesActive
+                                        : linkStyles
+                                }
                             >
                                 About
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            <Link
+                                href="/chess"
+                                className={
+                                    pathname == '/chess'
+                                        ? linkStylesActive
+                                        : linkStyles
+                                }
                             >
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                Contact
-                            </a>
+                                Chess
+                            </Link>
                         </li>
                     </ul>
                 </div>

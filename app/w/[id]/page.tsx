@@ -1,11 +1,8 @@
-import { useSearchParams } from 'next/navigation'
+import { NextRequest } from 'next/server'
 
 async function getData() {
-    const res = await fetch('http://localhost:3000/health')
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
+    const res = await fetch('http://localhost:3000/api/node')
 
-    // Recommendation: handle errors
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -13,7 +10,16 @@ async function getData() {
     return res.json()
 }
 
-export default async function Page() {
-    const searchParams = useSearchParams()
-    return <>Repo Stars: {JSON.stringify({ params: searchParams })}</>
+interface Props extends NextRequest {
+    params: { id: string }
+}
+
+export default async function Page(request: Props) {
+    const data = await getData()
+    return (
+        <>
+            {/* Page's Path: {JSON.stringify(request.params)} */}
+            <pre>{JSON.stringify(data, undefined, 4)}</pre>
+        </>
+    )
 }

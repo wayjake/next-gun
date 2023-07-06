@@ -1,0 +1,100 @@
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+    .rainbow-text {
+        background: linear-gradient(
+            90deg,
+            #e60000,
+            #e64a13,
+            #e69426,
+            #e6af36,
+            #e6c94f,
+            #e6e366,
+            #e6fd7c,
+            #cce489,
+            #b3cca0,
+            #99b3b8,
+            #80aacf,
+            #66a1d6,
+            #4d92dd,
+            #3382e4,
+            #1973eb,
+            #0064f1,
+            #0059e6,
+            #004e9c,
+            #004352,
+            #00381f,
+            #002d00,
+            #205400,
+            #407a00,
+            #609f00,
+            #80c500,
+            #8bd200,
+            #96df00,
+            #a1eb00,
+            #acf800,
+            #b8ff00
+        );
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .rainbow-text {
+        background: linear-gradient(
+            90deg,
+            #ff0000,
+            #ff2b00,
+            #ff5500,
+            #ff8000,
+            #ffaa00,
+            #ffd500,
+            #ffff00,
+            #d4ff00,
+            #aaff00,
+            #80ff00,
+            #55ff00,
+            #2bff00,
+            #00ff00,
+            #00ff2b,
+            #00ff55,
+            #00ff80,
+            #00ffaa,
+            #00ffd5,
+            #00ffff,
+            #00d4ff,
+            #00aaff,
+            #007fff,
+            #0055ff,
+            #002bff,
+            #0000ff,
+            #2a00ff,
+            #5500ff,
+            #7f00ff,
+            #aa00ff,
+            #d400ff,
+            #ff00ff
+        );
+    }
+}
+
+.rainbow-text {
+    font-weight: bold;
+    font-size: 32px;
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 30s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

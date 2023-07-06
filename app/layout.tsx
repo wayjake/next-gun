@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
     title: 'Wallie.io: the unlocked social site',
     description:
-        'Laying the groundwork that Tom from MySpace originally wanted for everyone. Freedom of creative expression.',
+        'Laying the groundwork that Tom from MySpace originally wanted for everyone. Freedom, expression, and connection.',
 }
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className="turd" suppressHydrationWarning>
             <body className={inter.className + ' h-screen bg-gray-100'}>
                 <TopBar />
                 {children}
